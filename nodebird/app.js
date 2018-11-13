@@ -2,7 +2,7 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const path = require('path')
-const session = require('session')
+const session = require('express-session')
 const flash = require('connect-flash')
 require('dotenv').config()
 
@@ -45,5 +45,7 @@ app.use((err, req, res) => {
   res.render('error')
 })
 
-
+app.listen(app.get('port'), () => {
+  console.log(app.get('port'), '번 포트에서 대기중')
+})
 
